@@ -41,6 +41,8 @@ Having a list of networks and channels: [networks_channels.csv](networks_channel
 "MNT","WTVZ"
 ```
 
+Note: The relation between Network to Channel is one to many. (e.g. There are many channels under FOX network)
+
 1- You need to unify the channel names, in some instances you can find duplicates for the same channel such as `('Fox Business Net', 'Fox Business Network') `
 or in some instances you can find their acronyms being used instead of full name such as `('FOX BUSINESS NETWORK HD', 'FBN-HD')`
 
