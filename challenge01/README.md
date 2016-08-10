@@ -52,11 +52,12 @@ or in some instances you can find their acronyms being used instead of full name
 channel_name_authoritative_mapping = {
   'FBN': 'Fox Business Network',
   'Fox Business Net': 'Fox Business Network',
-  'FOX BUSINESS NETWORK': 'Fox Business Network'
+  'FOX BUSINESS NETWORK': 'Fox Business Network',
+  ...
 }
 
 networks_channels = {
-  'FOX': ['Fox News Channel HDTV', 'Fox Business Net', '']
-
+  'FOX': ['Fox News Channel HDTV', 'Fox Business Network', ...],
+  ...
 }
 ```
