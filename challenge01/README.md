@@ -41,8 +41,8 @@ Having a list of networks and channels: [networks_channels.csv](networks_channel
 "MNT","WTVZ"
 ```
 
-1- You need to unify the channel names, in some instances you can find duplicates for the same channel such as ('Fox Business Net', 'Fox Business Network') 
-or in some instances you can find their acronyms being used instead of full name such as ('FOX BUSINESS NETWORK HD', 'FBN-HD')
+1- You need to unify the channel names, in some instances you can find duplicates for the same channel such as `('Fox Business Net', 'Fox Business Network') `
+or in some instances you can find their acronyms being used instead of full name such as `('FOX BUSINESS NETWORK HD', 'FBN-HD')`
 
 2- You need to find all channels that belong to a network and organize them as a dictionary where the keys are networks and channels are the values.
 
