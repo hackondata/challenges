@@ -1,7 +1,7 @@
 Challenge 01:
 =============
 
-Having a list of networks and channels: [networks_channels.csv](http://tranquant.com/datasource-detail/fba6e377-558f-4c1e-a562-ef9553a46975)
+Having a list of networks and channels:
 
 ## Header: Network, Channel
 ```
