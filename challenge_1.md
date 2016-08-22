@@ -1,7 +1,7 @@
 Challenge 01:
 =============
 
-### Bid Price: $100.0 CAD
+### Prize: $100.0 CAD
 
 ### HackOn(Data) Points: 25
 
