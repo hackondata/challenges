@@ -1,5 +1,7 @@
-Challenge 01:
+HackOn(Data) Challenge 01: TV Network Channels List - Data Cleansing Task
 =============
+
+[Data Resources on TranQuant](http://tranquant.com/datasource-detail/cdc72da2-096a-4733-a0a1-4443ab88c6bc)
 
 ### Prize: $100.0 CAD
 
