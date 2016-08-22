@@ -161,7 +161,7 @@ You could use `network_channels_master.json` as a guide to test your final resul
 
 
 
-## Desired mapping dictionary:
+## Desired solution should be a mapping that looks like:
 
 ```
 channel_name_authoritative_mapping = {
@@ -173,7 +173,7 @@ channel_name_authoritative_mapping = {
 
 ```
 
-** Please note that `channel_id` must match the correct channel from `network_channels_master.json` key: `ChannelLineup.Channel.ChannelId`
+** Please note that `channel_id` in your solution must match the correct channel from `network_channels_master.json` on key: `ChannelLineup.Channel.ChannelId`
 
 
 For example:
