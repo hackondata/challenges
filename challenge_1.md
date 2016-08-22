@@ -9,6 +9,8 @@ Sponsored by `Audience Partners Canada`
 
 ### HackOn(Data) Points: 25
 
+### Deadline: August 27th, 23:00 pm - No Late Submissions will be accepted
+
 The data cleansing task should be performed on the content of `channels_networks.csv`:
 
 `channels_networks.csv` has a list of networks and channels:
