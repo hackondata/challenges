@@ -1,8 +1,13 @@
 Challenge 01:
 =============
 
+### Bid Price: $100.0 CAD
+
+### HackOn(Data) Points: 25
+
 Having a list of networks and channels:
 
+`channels_networks.csv`
 ## Header: Network, Channel
 ```
 "","Fox News Channel HDTV"
@@ -41,6 +46,8 @@ Having a list of networks and channels:
 "MNT","WTVZ"
 ```
 
+The data cleansing task should be performed on the content of `channels_networks.csv`:
+
 Notes: 
 - The relation between Network to Channel is one to many. (e.g. There are many channels under FOX network)
 - Network is not always provided, ignore if it's not there
@@ -51,37 +58,141 @@ Notes:
   - (`west` == `(west)` == `ws` == ...)
   - ...
 
-You are going to create a mapping that allows looking up a consistent channel name.
+You could use `network_channels_master.json` as a guide to test your final result. This file is the list of channels with their network and meta information.
+
+`network_channels_master.json`:
+```
+		"ChannelLineup": [{
+			"Channel": {
+				"ChannelNumber": 1,
+				"ChannelId": 32046,
+				"Network": "VOD",
+				"NetworkCode": "VOD",
+				"Format": "SD",
+				"Streamable": false,
+				"StreamableLocation": "None",
+				"NetworkCategories": {
+					"NetworkCategory": []
+				},
+				"CallSignDisplayLabel": "VODDM",
+				"ChannelType": "VOD"
+			},
+			"Title": [{
+				"TitleId": "SH005456030000",
+				"Name": "On Demand",
+				"SeriesId": "SH005456030000",
+				"TmsId": "SH005456030000",
+				"TitleType": "Series",
+				"RunTime": 0,
+				"OriginalDate": 1035676800000,
+				"Advisory": {},
+				"TVRating": "TVY",
+				"Delivery": [{
+					"TitleId": "SH005456030000",
+					"DeliveryId": "32046-SH005456030000-1471615200000",
+					"StartDate": 1471615200000,
+					"EndDate": 1471629600000,
+					"GuidePeriodMinutes": 60,
+					"Channel": {
+						"ChannelNumber": 1,
+						"ChannelId": 32046,
+						"Network": "Video On Demand",
+						"NetworkCode": "VODDM",
+						"Format": "SD",
+						"Streamable": false,
+						"StreamableLocation": "None",
+						"NetworkCategories": {},
+						"CallSignDisplayLabel": "VODDM"
+					},
+					"Duration": 14400,
+					"Source": "Charter",
+					"Transport": [{
+						"TransportType": "QAM",
+						"Format": "SD"
+					}],
+					"DeliveryType": "Linear",
+					"TVRating": "TVY",
+					"TVAdvisory": []
+				}],
+				"TitleCategories": {},
+				"IsAvailableViaVod": false
+			}, {
+				"TitleId": "SH005456030000",
+				"Name": "On Demand",
+				"SeriesId": "SH005456030000",
+				"TmsId": "SH005456030000",
+				"TitleType": "Series",
+				"RunTime": 0,
+				"OriginalDate": 1035676800000,
+				"Advisory": {},
+				"TVRating": "TVY",
+				"Delivery": [{
+					"TitleId": "SH005456030000",
+					"DeliveryId": "32046-SH005456030000-1471629600000",
+					"StartDate": 1471629600000,
+					"EndDate": 1471644000000,
+					"GuidePeriodMinutes": 60,
+					"Channel": {
+						"ChannelNumber": 1,
+						"ChannelId": 32046,
+						"Network": "Video On Demand",
+						"NetworkCode": "VODDM",
+						"Format": "SD",
+						"Streamable": false,
+						"StreamableLocation": "None",
+						"NetworkCategories": {},
+						"CallSignDisplayLabel": "VODDM"
+					},
+					"Duration": 14400,
+					"Source": "Charter",
+					"Transport": [{
+						"TransportType": "QAM",
+						"Format": "SD"
+					}],
+					"DeliveryType": "Linear",
+					"TVRating": "TVY",
+					"TVAdvisory": []
+				}],
+				"TitleCategories": {},
+				"IsAvailableViaVod": false
+			}]
+		},
+		...
+```
+
+
 
 ## Desired mapping dictionary:
 
 ```
 channel_name_authoritative_mapping = {
-  'FBN': {'primary_channel_name': 'Fox Business Network', 'network': 'fox'},
-  'Fox Business Net': {'primary_channel_name': 'Fox Business Network', 'network': 'fox'},
-  'FOX BUSINESS NETWORK': {'primary_channel_name': 'Fox Business Network', 'network': 'fox'},
+  'FBN': {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '1234'},
+  'Fox Business Net': {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '1234'},
+  'FOX BUSINESS NETWORK': {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '1234'},
   ...
 }
 
 ```
 
+** Please note that `channel_id` must match the correct channel from `network_channels_master.json` key: `ChannelLineup.Channel.ChannelId`
+
 
 For example:
 ```
 channel_name_authoritative_mapping.get('Fox Business ntwk')
--> {'primary_channel_name': 'Fox Business Network', 'network': 'fox'}
+-> {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '123'}
 
 
 channel_name_authoritative_mapping.get('FBN')
--> {'primary_channel_name': 'Fox Business Network', 'network': 'fox'}
+-> {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '123'}
 
 
 channel_name_authoritative_mapping.get('blomberg')
--> {'primary_channel_name': 'Bloomberg', 'network': None}
+-> {'primary_channel_name': 'Bloomberg', 'network': None, 'channel_id': '123'}
 
 
 channel_name_authoritative_mapping.get('Bloomberg')
--> {'primary_channel_name': 'Bloomberg', 'network': None}
+-> {'primary_channel_name': 'Bloomberg', 'network': None, 'channel_id': '123'}
 
 
 ```
