@@ -166,8 +166,7 @@ You could use `network_channels_master.json` as a guide to test your final resul
 ```
 
 
-Example:
-
+## Example:
 
 On `networks_channels.csv` file you can find these records:
 ```
