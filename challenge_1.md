@@ -231,19 +231,11 @@ channel_name_authoritative_mapping = {
 For example:
 ```
 channel_name_authoritative_mapping.get('Fox Business ntwk')
--> {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '123'}
+-> {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'}
 
 
-channel_name_authoritative_mapping.get('FBN')
--> {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '123'}
-
-
-channel_name_authoritative_mapping.get('blomberg')
--> {'primary_channel_name': 'Bloomberg', 'network': None, 'channel_id': '123'}
-
-
-channel_name_authoritative_mapping.get('Bloomberg')
--> {'primary_channel_name': 'Bloomberg', 'network': None, 'channel_id': '123'}
+channel_name_authoritative_mapping.get('FBN-SD')
+-> {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'}
 
 
 ```
