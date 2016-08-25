@@ -166,17 +166,64 @@ You could use `network_channels_master.json` as a guide to test your final resul
 ```
 
 
+Example:
 
-## Desired solution should be a mapping that looks like:
+
+On `networks_channels.csv` file you can find these records:
+```
+'network', 'channel'
+'','Fox Business Net'
+'','FOX BUSINESS NETWORK'
+'','Fox Business News'
+'','Fox Business Ntwk'
+'','FBN-SD'
+...
+```
+
+Now if you search through `network_channels_master.json` you will find Channel records for `Fox Business`.
+
+You can find `Fox Business` as the network name with Channel ID `58649`
+
+```
+"Channel": {
+    "ChannelNumber": 95,
+
+    "ChannelId": 58649,
+
+    "Network": "Fox Business",
+
+    "NetworkCode": "FBN",
+    "NetworkLogoUri": [{
+        "ImageUri": "http://tmsimg.video.cdn.charter.com/h3/NowShowing/58649/s58649_h3_aa.png",
+        "ImageType": "For Light Background",
+        "ReferenceType": "Network",
+        "Width": 360,
+        "Height": 270,
+        "DefaultImage": true
+    }],
+    "Format": "SD",
+    "Streamable": false,
+    "StreamableLocation": "None",
+    "NetworkCategories": {
+        "NetworkCategory": ["News & Weather"]
+    },
+    "VodFolderId": "44da38afd3816562f3dc7f4ddaf4d3d7",
+    "SDHDPair": 58718,
+    "CallSignDisplayLabel": "FBN"
+}
+```
+
+Now you have the ChannelId for all those 4 records with similar name that we saw on `networks_channels.csv`. The desired records in your final dataset should look like:
 
 ```
 channel_name_authoritative_mapping = {
-  'FBN': {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '1234'},
-  'Fox Business Net': {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '1234'},
-  'FOX BUSINESS NETWORK': {'primary_channel_name': 'Fox Business Network', 'network': 'fox', 'channel_id': '1234'},
-  ...
+ 'Fox Business Net': {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'},
+ 'FOX BUSINESS NETWORK': {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'},
+ 'Fox Business News': {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'},
+ 'Fox Business Ntwk': {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'},
+ 'FBN-SD': {'primary_channel_name': 'Fox Business', 'network': '', 'channel_id': '58649'},
+ ...
 }
-
 ```
 
 ** Please note that `channel_id` in your solution must match the correct channel from `network_channels_master.json` on key: `ChannelLineup.Channel.ChannelId`
