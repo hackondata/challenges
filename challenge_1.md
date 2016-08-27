@@ -245,7 +245,7 @@ channel_name_authoritative_mapping.get('FBN-SD')
 1. Go to [TranQuant](http://tranquant.com)
 2. Go to top menu `<Your E-mail>` > `My Data Publications`
 3. Click on `Create new Data Source/Task` button
-4. Create a new data source by filling out the form, you will be redirected to its edit page after creating it (You can set the category to `Open Data`, You should set the price to `0.00` and you can leave the `fields` and for `Agreement for Demand Data Usage`, `Tranquant Supplier Contract` you can just type `Open Data`)
+4. Create a new data source by filling out the form, use `RE: TV Network Channels List - Data Cleansing Task` as the title - you will be redirected to its edit page after creating it (You can set the category to `Open Data`, You should set the price to `0.00` and you can leave the `fields` and for `Agreement for Demand Data Usage`, `Tranquant Supplier Contract` you can just type `Open Data`)
 5. Install TQCLI according to [the instruction](https://github.com/Tranquant/tqcli)
 6. Using the command under `Upload Dataset by TQCLI` in Data Source edit page, you can upload your solution dataset
 7. If everything goes well you will see that the uploaded dataset will become available under the data source that you created on the TranQuant website
